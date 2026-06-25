@@ -12,123 +12,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#057BE5; --blue-hover:#0C6EC5; --sky:#308ED6;
-  --navy:#00172D; --navy-deep:#001020; --mint:#3BEECA;
+  --blue:#057BE5; --blue-hover:#0C6EC5; --sky:#2D90EE; --mint:#3BEECA; --mint-d:#0fae8f;
+  --navy:#00172D; --navy-2:#062c4e; --navy-deep:#001020;
   --ink:#0F1B2D; --body:#2B3442; --muted:#6A7482;
-  --white:#fff; --off:#F8FAFC; --gray-bg:#EFF2F7; --divider:#ECEFF3; --line:#E3E8EF;
-  --r-sm:10px; --r-md:14px; --r-lg:20px;
-  --e1:0 2px 6px rgba(0,23,45,.06); --e2:0 6px 20px rgba(0,23,45,.08); --e3:0 16px 40px rgba(0,23,45,.12);
+  --white:#fff; --off:#F8FAFC; --gray:#EFF2F7; --divider:#EDF1F5; --line:#E2E8F0;
+  --success:#2BBF7A; --warning:#F0A93B;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--gray-bg);color:var(--body);line-height:1.55;}
-.page{max-width:1040px;margin:40px auto;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--e3);overflow:hidden;min-height:calc(100vh - 80px);display:flex;flex-direction:column;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;text-rendering:optimizeLegibility;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(--body);line-height:1.55;}
+.shell{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:288px 1fr;min-height:100vh;background:var(--white);}
 
-/* ---------- Header ---------- */
-.masthead{display:flex;justify-content:space-between;align-items:center;padding:30px 64px;border-bottom:1px solid var(--divider);}
-.masthead img{height:41px;}
-.masthead .meta{font-size:12px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;font-weight:600;}
+/* ---------- Sidebar (matches the reports) ---------- */
+.side{background:var(--navy);color:#cfe0ee;padding:34px 30px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;}
+.side .logo{margin-bottom:38px;}
+.side .eb{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);}
+.side h1{font-size:27px;font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.02em;margin:10px 0 14px;}
+.side .who{font-size:13px;color:#a7c2da;line-height:1.6;}
+.side .who b{color:#fff;font-weight:600;}
+.side nav{margin-top:30px;display:flex;flex-direction:column;gap:2px;}
+.side nav a{font-size:13.5px;color:#9fbcd6;text-decoration:none;padding:9px 12px;border-radius:8px;display:flex;align-items:center;gap:11px;transition:background .15s,color .15s;}
+.side nav a:hover{background:rgba(255,255,255,.06);color:#fff;text-decoration:none;}
+.side nav a .dot{width:6px;height:6px;border-radius:50%;background:#3a6386;flex-shrink:0;transition:background .15s;}
+.side nav a:hover .dot{background:var(--mint);}
+.side .foot{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:11px;color:#6f93b3;line-height:1.6;}
 
-.hero{padding:54px 64px 46px;}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);}
-.hero h1{font-size:46px;font-weight:900;line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin:16px 0 14px;}
-.hero h1 .hl{background:linear-gradient(var(--mint),var(--mint));background-repeat:no-repeat;background-position:0 92%;background-size:100% 12px;padding:0 2px;}
-.hero .sub{font-size:15px;color:var(--muted);font-weight:500;}
-.hero .sub b{color:var(--ink);font-weight:600;}
+/* ---------- Main ---------- */
+.main{padding:46px 52px 40px;display:flex;flex-direction:column;}
+.intro{background:var(--off);border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin-bottom:34px;}
+.intro .eb{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);}
+.intro h2{font-size:30px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1.08;margin:10px 0 12px;}
+.intro p{font-size:14.5px;color:var(--body);line-height:1.62;max-width:760px;}
+.intro p b{color:var(--ink);font-weight:700;}
 
-/* ---------- Section scaffold ---------- */
-.section{padding:0 64px;margin-bottom:52px;flex:1;}
-.sec-head{margin-bottom:24px;}
-.sec-num{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;}
-.sec-head h2{font-size:26px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:4px;}
-.sec-head p{font-size:14.5px;color:var(--muted);margin-top:6px;max-width:640px;}
+/* ---------- Numbered report cards ---------- */
+.rcards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.rcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:24px 26px 22px;background:var(--white);text-decoration:none;color:inherit;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s;}
+.rcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--blue));}
+.rcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,23,45,.12);border-color:#d4deea;}
+.rcard .num{display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent,var(--blue));background:var(--accent-bg,#E6F1FD);border-radius:7px;padding:5px 10px;width:fit-content;margin-bottom:16px;}
+.rcard .ceb{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.rcard h3{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.16;margin:7px 0 0;}
+.rcard .desc{font-size:13px;color:var(--body);line-height:1.58;margin-top:11px;}
+.rcard .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+.rcard .chip{font-size:12px;font-weight:700;color:var(--ink);background:var(--off);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-variant-numeric:tabular-nums;}
+.rcard .open{margin-top:20px;font-size:13.5px;font-weight:700;color:var(--accent,var(--blue));display:inline-flex;align-items:center;gap:7px;}
+.rcard .open .ar{transition:transform .18s;}
+.rcard:hover .open .ar{transform:translateX(4px);}
 
-/* ---------- Report cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,460px));gap:18px;}
-.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-md);padding:26px 28px;background:var(--white);box-shadow:var(--e1);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
-.card:hover{transform:translateY(-3px);box-shadow:var(--e2);}
-.card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.tag{font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.02em;}
-.tag.blue{background:#E3F0FD;color:var(--blue-hover);}
-.tag.mint{background:#D6F7EE;color:#0c8c72;}
-.card h3{font-size:21px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1.16;}
-.card .date{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px;}
-.card .desc{font-size:13.5px;color:var(--body);line-height:1.58;margin-top:13px;}
-.card .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid var(--divider);}
-.card .st .v{font-size:20px;font-weight:900;color:var(--ink);letter-spacing:-.02em;}
-.card .st .l{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px;}
-.card .cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--blue);color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:10px;align-self:flex-start;transition:background .15s;}
-.card:hover .cta{background:var(--blue-hover);}
-.card .cta .ar{transition:transform .2s;}
-.card:hover .cta .ar{transform:translateX(4px);}
+.closing{margin-top:auto;padding-top:30px;font-size:12.5px;color:var(--muted);line-height:1.6;}
+.closing b{color:var(--ink);font-weight:600;}
 
-/* ---------- Footer ---------- */
-.footer{padding:40px 64px 44px;text-align:center;border-top:1px solid var(--divider);}
-.footer img{height:41px;opacity:.9;margin-bottom:12px;}
-.footer .t{font-size:12.5px;color:var(--muted);}
-.footer .t2{font-size:11px;color:#9aa6b4;margin-top:6px;}
-
-@media(max-width:820px){
-  .section,.masthead,.hero,.footer{padding-left:24px;padding-right:24px;}
-  .cards{grid-template-columns:1fr;}
-  .hero h1{font-size:34px;}
+@media print{
+  body{background:#fff;} .shell{display:block;max-width:none;}
+  .side{position:static;height:auto;flex-direction:row;align-items:center;justify-content:space-between;padding:20px 30px;}
+  .side nav,.side .foot{display:none;} .side h1{margin:0;}
+  .rcard{break-inside:avoid;}
+}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr;}
+  .side{position:static;height:auto;}
+  .side nav{display:none;}
+  .main{padding:32px 22px;}
+  .rcards{grid-template-columns:1fr;}
+  .intro h2{font-size:26px;}
 }
 </style>
 </head>
 <body>
-<div class="page" data-screen-label="Refined Light reporting landing page">
+<div class="shell" data-screen-label="Reporting landing page — Structured Dashboard">
 
-  <div class="masthead">
-    <img src="assets/goal-wordmark-black.png" alt="GOAL">
-    <div class="meta">Client Reporting &middot; Ammon/Williams Agency</div>
-  </div>
+  <aside class="side">
+    <svg class="logo" width="112" height="32" viewBox="0 0 118 34" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GOAL">
+      <circle cx="17" cy="17" r="14.5" stroke="#2D90EE" stroke-width="2"/>
+      <circle cx="17" cy="17" r="8.5" stroke="#2D90EE" stroke-width="2"/>
+      <circle cx="17" cy="17" r="3" fill="#2D90EE"/>
+      <text x="41" y="24" font-family="Inter, sans-serif" font-size="23" font-weight="900" letter-spacing="-0.5" fill="#FFFFFF">GOAL</text>
+    </svg>
+    <div class="eb">Performance Reports</div>
+    <h1>Ammon/<wbr>Williams Agency</h1>
+    <div class="who">Prepared for <b>Will Partington</b><br>Olney, MD &middot; Home &amp; Auto<br>Onboarding &middot; June 10, 2026</div>
+    <nav>
+      <a href="/reports/md-home-campaign-overview-2026-06-10"><span class="dot"></span>Maryland Home — Campaign Overview</a>
+      <a href="/reports/md-auto-campaign-overview-2026-06-10"><span class="dot"></span>Maryland Auto — Campaign Overview</a>
+    </nav>
+    <div class="foot">GOAL Performance Marketing<br>All metrics based on Leads, not Clicks.</div>
+  </aside>
 
-  <header class="hero">
-    <div class="eyebrow">Client Reporting</div>
-    <h1>Ammon/<wbr>Williams <span class="hl">Agency</span></h1>
-    <div class="sub">Prepared for <b>Will Partington</b> &middot; Olney, MD &middot; All reporting for your account, in one place</div>
-  </header>
+  <main class="main">
 
-  <section class="section">
-    <div class="sec-head">
-      <div class="sec-num">Reports</div>
-      <h2>Current reports</h2>
-      <p>Select a report below to open the full detail. Every report is print-friendly &mdash; open it full-size to read or print to PDF.</p>
+    <div class="intro">
+      <div class="eb">Campaign Setup &middot; June 10, 2026</div>
+      <h2>Launch reporting package</h2>
+      <p>Two campaign-setup reports for the <b>June 10, 2026</b> launch of the Maryland Home and Maryland Auto campaigns — budget allocation across the <b>$2,000/month</b> plan, ad-wall positioning, ZIP and current-carrier targeting, source-level bids against the June 10 market pricing pull, and the launch plan for each line. Open either report below.</p>
     </div>
-    <div class="cards">
-      <a class="card" href="/reports/md-home-campaign-overview-2026-06-10">
-        <div class="tags"><span class="tag blue">Onboarding</span><span class="tag mint">Maryland Home</span></div>
+
+    <div class="rcards">
+
+      <a class="rcard" href="/reports/md-home-campaign-overview-2026-06-10" style="--accent:#057BE5;--accent-bg:#E6F1FD;">
+        <span class="num">01</span>
+        <div class="ceb">Maryland Home &middot; Campaign Setup</div>
         <h3>Maryland Home — Campaign Overview</h3>
-        <div class="date">June 10, 2026</div>
-        <div class="desc">The priority line of the launch plan: budget share, ad-wall position mix, ZIP and current-carrier targeting, source-level bids vs. market pricing, and the launch plan.</div>
-        <div class="stats">
-          <div class="st"><div class="v">~$1,100</div><div class="l">Monthly budget</div></div>
-          <div class="st"><div class="v">1st&ndash;2nd</div><div class="l">Ad positions</div></div>
-          <div class="st"><div class="v">$8.00</div><div class="l">Base bid</div></div>
-        </div>
-        <span class="cta">Open report <span class="ar">&rarr;</span></span>
+        <div class="desc">The priority line of the launch plan: budget share, ad-wall position mix, ZIP and current-carrier targeting, source-level bids vs. the June 10 market pricing, and the launch plan.</div>
+        <div class="chips"><span class="chip">~$1,100 / mo</span><span class="chip">1st–2nd position</span><span class="chip">$8.00 base bid</span></div>
+        <span class="open">Open report <span class="ar">&rarr;</span></span>
       </a>
-      <a class="card" href="/reports/md-auto-campaign-overview-2026-06-10">
-        <div class="tags"><span class="tag blue">Onboarding</span><span class="tag mint">Maryland Auto</span></div>
+
+      <a class="rcard" href="/reports/md-auto-campaign-overview-2026-06-10" style="--accent:#2D90EE;--accent-bg:#E3F0FD;">
+        <span class="num">02</span>
+        <div class="ceb">Maryland Auto &middot; Campaign Setup</div>
         <h3>Maryland Auto — Campaign Overview</h3>
-        <div class="date">June 10, 2026</div>
-        <div class="desc">The efficiency line of the launch plan: budget share, ad-wall position mix, shared targeting, the bid-up source strategy vs. market pricing, and the launch plan.</div>
-        <div class="stats">
-          <div class="st"><div class="v">~$900</div><div class="l">Monthly budget</div></div>
-          <div class="st"><div class="v">2nd+</div><div class="l">Ad positions</div></div>
-          <div class="st"><div class="v">$8.00</div><div class="l">Base bid</div></div>
-        </div>
-        <span class="cta">Open report <span class="ar">&rarr;</span></span>
+        <div class="desc">The efficiency line of the launch plan: budget share, ad-wall position mix, shared targeting, the bid-up source strategy vs. the June 10 market pricing, and the launch plan.</div>
+        <div class="chips"><span class="chip">~$900 / mo</span><span class="chip">2nd+ position</span><span class="chip">$8.00 base bid</span></div>
+        <span class="open">Open report <span class="ar">&rarr;</span></span>
       </a>
+
     </div>
-  </section>
 
-  <div class="footer">
-    <img src="assets/goal-wordmark-black.png" alt="GOAL">
-    <div class="t">GOAL &middot; Performance Marketing &middot; Prepared for Ammon/Williams Agency</div>
-    <div class="t2">All metrics based on Leads, not Clicks.</div>
-  </div>
+    <div class="closing">Reports reflect the GOAL market-pricing pull of <b>June 10, 2026</b>. Each report is self-contained and prints cleanly to PDF.</div>
 
+  </main>
 </div>
 </body>
 </html>
