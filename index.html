@@ -46,7 +46,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
 .intro p b{color:var(--ink);font-weight:700;}
 
 /* ---------- Numbered report cards ---------- */
-.rcards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .rcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:24px 26px 22px;background:var(--white);text-decoration:none;color:inherit;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s;}
 .rcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--blue));}
 .rcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,23,45,.12);border-color:#d4deea;}
@@ -95,6 +95,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
     <nav>
       <a href="/reports/md-home-campaign-overview-2026-06-10"><span class="dot"></span>Maryland Home — Campaign Overview</a>
       <a href="/reports/md-auto-campaign-overview-2026-06-10"><span class="dot"></span>Maryland Auto — Campaign Overview</a>
+      <a href="/reports/inbound-call-performance-2026-07-08"><span class="dot"></span>Inbound Call Performance</a>
     </nav>
     <div class="foot">GOAL Performance Marketing<br>All metrics based on Leads, not Clicks.</div>
   </aside>
@@ -102,9 +103,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
   <main class="main">
 
     <div class="intro">
-      <div class="eb">Account Review &middot; June 25, 2026</div>
-      <h2>Account review package</h2>
-      <p>Two reports for the <b>June 25, 2026</b> review of the live Maryland Home and Maryland Auto campaigns (Day 14) — performance to date, the bid re-price to the <b>June 24</b> market, targeting updates, and the optimization plan for each line. Open either report below.</p>
+      <div class="eb">Account Review &amp; Call Performance</div>
+      <h2>Reporting package</h2>
+      <p>Three reports below: the <b>June 25, 2026</b> account review of the live Maryland Home and Maryland Auto campaigns (Day 14) — performance to date, the bid re-price to the <b>June 24</b> market, targeting updates, and the optimization plan for each line — plus the <b>Inbound Call Performance</b> report covering <b>June 11 – July 8, 2026</b>. Open any report below.</p>
     </div>
 
     <div class="rcards">
@@ -124,6 +125,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
         <h3>Maryland Auto — Campaign Overview</h3>
         <div class="desc">Performance to date, the base-bid re-price to $9.30, the bid-up source strategy vs. the June 24 market, single-car items to confirm, and the optimization plan.</div>
         <div class="chips"><span class="chip">$45 / day</span><span class="chip">2nd+ position</span><span class="chip">$9.30 base bid</span></div>
+        <span class="open">Open report <span class="ar">&rarr;</span></span>
+      </a>
+
+      <a class="rcard" href="/reports/inbound-call-performance-2026-07-08" style="--accent:#0fae8f;--accent-bg:#E3FBF6;">
+        <span class="num">03</span>
+        <div class="ceb">Inbound Call Performance</div>
+        <h3>Inbound Call Performance</h3>
+        <div class="desc">14 inbound calls, a 40% answer rate, and a 50% quote rate on answered calls for June 11 – July 8, 2026 — plus pickup-speed data and recommendations to capture the calls going unanswered.</div>
+        <div class="chips"><span class="chip">14 calls</span><span class="chip">40% answered</span><span class="chip">3 quotes</span></div>
         <span class="open">Open report <span class="ar">&rarr;</span></span>
       </a>
 
