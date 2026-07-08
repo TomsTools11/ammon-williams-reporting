@@ -50,6 +50,17 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
 .exec p{font-size:15.5px;line-height:1.62;color:var(--body);}
 .exec p b{color:var(--ink);font-weight:700;}
 
+/* ---------- Callout ---------- */
+.callout{background:#E6F1FD;border:1px solid #BFDCF8;border-radius:14px;padding:24px 28px;margin-bottom:24px;}
+.callout .ceb{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-hover);margin-bottom:10px;}
+.callout p{font-size:15.5px;line-height:1.62;color:var(--ink);}
+.callout p b{font-weight:800;}
+.callout .sub{font-size:14px;line-height:1.6;color:var(--body);margin-top:12px;}
+.callout .cta{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:#fff;background:var(--blue);padding:10px 16px;border-radius:9px;text-decoration:none;transition:background .15s;}
+.callout .cta:hover{background:var(--blue-hover);}
+.callout .cta .ar{transition:transform .18s;}
+.callout .cta:hover .ar{transform:translateX(4px);}
+
 /* ---------- KPI cards ---------- */
 .kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .kc{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--white);}
@@ -149,6 +160,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--gray);color:var(-
   </aside>
 
   <main class="main">
+
+    <div class="callout">
+      <div class="ceb">Your biggest lever right now</div>
+      <p>The biggest performance lever you have right now to boost quotes and closes is your <b>inbound call answer rate</b>. Inbound calls from GOAL convert to quotes over <b>20x more often</b> than the traditional leads your ads generate. It's very important you answer as many of these as possible.</p>
+      <div class="sub">Please review this best practices page to see the process our most successful agencies are using.</div>
+      <a class="cta" href="https://goal-followup-best-practices.vercel.app/" target="_blank" rel="noopener">Review best practices <span class="ar">&rarr;</span></a>
+    </div>
 
     <div class="exec">
       <p><b>June 11 &ndash; July 8, 2026.</b> The campaign delivered <b>14 inbound phone calls</b>. Answer rate was <b>40%</b>. Of the calls that were answered, <b>50%</b> resulted in a quote. All <b>3 quotes</b> in this period came from answered calls. At a 50% quote rate on answered calls, answering all 14 calls corresponds to <b>7 quotes</b>.</p>
