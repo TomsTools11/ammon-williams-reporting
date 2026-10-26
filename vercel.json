@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/reports/md-auto-performance-review-2026-07-08", "destination": "/reports/md-auto-performance-review-2026-10-26", "permanent": false },
+    { "source": "/reports/md-home-performance-review-2026-07-08", "destination": "/reports/md-home-performance-review-2026-10-26", "permanent": false },
+    { "source": "/reports/inbound-call-performance-2026-07-08", "destination": "/reports/inbound-call-performance-2026-10-26", "permanent": false }
+  ]
 }
